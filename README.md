@@ -9,7 +9,7 @@ Ideal to set environment variables automatically.
 Add the configuration to your .zshenv (or .zshrc) file:
 
 ```sh
-typeset -A _zsh_dir_profiles
+typeset -a _zsh_dir_profiles
 _zsh_dir_profiles=(
 	"/path/to/a/directory/src/project1" "/path/to/zsh-dirprofiles/project1"
 	"/path/to/a/directory/src/project2" "/path/to/zsh-dirprofiles/project2"

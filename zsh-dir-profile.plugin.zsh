@@ -1,6 +1,6 @@
 _load_zsh_dir_profile() {
 	local value
-	value=$_zsh_dir_profiles[$1]
+	value=$1
 
 	if [ -e "$value" ];then
 		. "$value"
@@ -14,10 +14,10 @@ _load_zsh_dir_profile() {
 
 load_zsh_dir_profile() {
 	if [[ -v _zsh_dir_profiles ]];then
-		for key value in ${(kv)_zsh_dir_profiles};do
+		for key value in ${(@kv)_zsh_dir_profiles};do
 			if [ "$key" != "default" ] && [ "${PWD##$key}" != "$PWD" ];then
 				if [ "$_ZSH_DIR_PROFILE" != "$key" ];then
-					if ! _load_zsh_dir_profile $key;then
+					if ! _load_zsh_dir_profile $value;then
 						return 1
 					fi
 				fi
